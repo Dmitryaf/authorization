@@ -1,0 +1,18 @@
+
+.downloadPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    border: 2px solid #a0a0a0;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 50px auto;
+}
+
+.input {
+    display: none;
+}
