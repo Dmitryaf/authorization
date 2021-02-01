@@ -1,23 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import File from './File/File';
 import { setFiles } from '../../redux/filesPage-reducer';
 
 function FilesPage() {
-  const [files, setFilesState] = useState([]);
   const dispatch = useDispatch();
-
+  const files = useSelector((state) => state.filesPage.files);
   useEffect(() => {
     axios
       .get('http://localhost:5000/files')
-      .then((response) => setFilesState(response.data))
+      .then((response) => {
+        dispatch(setFiles(response.data));
+      })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-
-  dispatch(setFiles(files));
 
   return (
     <div className='container'>
