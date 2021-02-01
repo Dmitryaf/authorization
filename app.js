@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const loadRoute = require('./route/load');
-const filesRoute = require('./route/files');
+const loadRoute = require('./routes/load');
+const filesRoute = require('./routes/files');
 
 const key = require('./config/key');
 
