@@ -11,12 +11,25 @@ const storage = multer.diskStorage({
   },
 });
 
+const fileFilter = (req, file, cb) => {
+  if (
+    file.mimetype === 'text/plain' ||
+    file.mimetype === 'application/msword' ||
+    file.mimetype ===
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+  ) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
 const limits = {
   fileSize: 1024 * 1024 * 5,
 };
 
-const fileFilter = (req, file, cb) => {};
-
 module.exports = multer({
   storage,
+  fileFilter,
+  limits,
 });
