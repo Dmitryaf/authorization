@@ -11,7 +11,6 @@ module.exports.getAll = async function (req, res) {
 };
 
 module.exports.update = async function (req, res) {
-  console.log(req.body.content);
   const file = await File.findById(req.params.id);
   const updatedFile = fs.writeFile(
     `${file.name}`,
