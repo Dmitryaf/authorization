@@ -1,14 +1,13 @@
-import React from 'react';
-import {
-  faPencilAlt,
-  faTimes,
-  faUserCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { faFileDownload, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './File.module.scss';
+import { toogleModal } from '../../../redux/filesPage-reducer';
 
 function File(props) {
-  const { id, name } = props;
+  const { id, name, handleDownload } = props;
+  const dispatch = useDispatch();
 
   return (
     <tr className={styles.file}>
@@ -20,14 +19,21 @@ function File(props) {
           <button
             type='button'
             className={`${styles.file__edit} ${styles.file__optionsIcon}`}
+            onClick={() => {
+              dispatch(toogleModal(id));
+              handleDownload(name);
+            }}
           >
             <FontAwesomeIcon className={styles.editIco} icon={faPencilAlt} />
           </button>
           <button
             type='button'
-            className={`${styles.file__delete} ${styles.file__optionsIcon}`}
+            className={`${styles.file__download} ${styles.file__optionsIcon}`}
           >
-            <FontAwesomeIcon className={styles.deleteIco} icon={faTimes} />
+            <FontAwesomeIcon
+              className={styles.downloadIco}
+              icon={faFileDownload}
+            />
           </button>
         </div>
       </td>

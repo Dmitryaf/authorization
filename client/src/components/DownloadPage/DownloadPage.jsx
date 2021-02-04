@@ -25,7 +25,7 @@ function DownloadPage() {
           console.log(error);
         });
     }
-  }, []);
+  }, [file]);
 
   return (
     <div className='container'>
