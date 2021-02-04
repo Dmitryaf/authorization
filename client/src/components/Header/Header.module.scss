@@ -5,10 +5,8 @@
     justify-content: space-around;
 
 }
-.active {
-    background-color: #17a2b8;
-}
-.link{
+
+.link {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -19,8 +17,16 @@
     font-size: 30px;
     border-bottom: 2px solid #a0a0a0;
     transition: .3s;
+
+    &:hover {
+        background-color: #17a2b8;
+    }
     
     &:nth-child(1) {
         border-right: 2px solid #a0a0a0;
     }
+}
+
+.active {
+    background-color: #17a2b8;
 }

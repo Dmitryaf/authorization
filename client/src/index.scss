@@ -38,9 +38,10 @@ body {
 }
 
 .title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 500;
   color: #6c757d;
+  text-align: center;
 }
 
 table {
@@ -68,5 +69,10 @@ table {
     font-weight: bold;
     width: 200px;
     padding: 10px 50px;
+  }
+
+  &__empty {
+    font-size: 18px;
+    text-align: center;
   }
 }
