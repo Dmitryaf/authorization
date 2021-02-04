@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { faFileDownload, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styles from './File.module.scss';
 import { toogleModal } from '../../../redux/filesPage-reducer';
+import styles from './File.module.scss';
 
 function File(props) {
   const { id, name, handleDownload } = props;

@@ -1,11 +1,13 @@
 const GET_FILES = 'GET_FILES';
 const MODAL = 'MODAL';
+const NEW_MODAL_TEXT = 'NEW_MODAL_TEXT';
 
 let initialState = {
   files: [],
   modal: {
     currentItemId: null,
     isOpen: false,
+    content: null,
   },
 };
 
@@ -24,6 +26,16 @@ export const filesPageReducer = (state = initialState, action) => {
           isOpen: !state.modal.isOpen,
         },
       };
+
+    case NEW_MODAL_TEXT:
+      return {
+        ...state,
+        modal: {
+          currentItemId: state.modal.currentItemId,
+          isOpen: state.modal.isOpen,
+          content: action.content,
+        },
+      };
     default:
       return { ...state };
   }
@@ -37,4 +49,9 @@ export const setFiles = (files) => ({
 export const toogleModal = (id) => ({
   type: MODAL,
   id,
+});
+
+export const newModalText = (content) => ({
+  type: NEW_MODAL_TEXT,
+  content,
 });

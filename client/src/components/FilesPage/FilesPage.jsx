@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import File from './File/File';
-import { setFiles } from '../../redux/filesPage-reducer';
+import { newModalText, setFiles } from '../../redux/filesPage-reducer';
 import Modal from './Modal/Modal';
 
 function FilesPage() {
@@ -19,10 +19,18 @@ function FilesPage() {
         { responseType: 'text' }
       )
       .then((response) => {
-        console.log(response);
         return response.data;
       });
     setFileText(text);
+    dispatch(newModalText(text));
+  };
+
+  const handleUpdate = async (fileName, content) => {
+    axios
+      .put('http://localhost:5000/uploads', { fileName, content })
+      .then((response) => {
+        console.log(response);
+      });
   };
 
   useEffect(() => {
@@ -62,6 +70,7 @@ function FilesPage() {
               name={file.name}
               text={fileText}
               key={file._id}
+              handleUpdate={handleUpdate}
             />
           );
         }
