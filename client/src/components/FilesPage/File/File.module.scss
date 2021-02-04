@@ -2,112 +2,78 @@
   border-bottom: 1px solid #cccccc;
   padding: 10px 20px;
   transition: 0.3s;
-}
 
-.file:hover {
-  background: #ccccccb2;
-}
-
-.file__td {
-  width: 300px;
-  padding: 10px 50px;
-}
-
-.file__td:first-child {
-  padding: 10px 20px;
-}
-
-.file__name {
-  margin-left: 15px;
-}
-
-.file__options {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: center;
-}
-
-.file__optionsIcon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.file__edit {
-  background-color: #ffebb2;
-  border-radius: 3px;
-  border: 1px solid #d6b656;
-  margin-right: 10px;
-}
-
-.file__edit:hover {
-  background-color: #e9c975;
-}
-
-.file__delete {
-  background-color: #f58383;
-  border-radius: 3px;
-  border: 1px solid #cc5b5b;
-}
-
-.file__delete:hover {
-  background-color: #dd6c6c;
-}
-
-.file__edit,
-.file__delete {
-  transition: 0.3s;
-}
-
-.editIco,
-.deleteIco {
-  font-size: 20px;
-  color: #6a6666;
-}
-
-@media (max-width: 768px) {
-  .file__td {
-    width: auto;
-    padding: 10px 40px;
-  }
-
-  .file__optionsIcon {
-    width: 30px;
-    height: 30px;
-  }
-
-  .editIco,
-  .deleteIco {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 560px) {
-  .file {
+  @media (max-width: 560px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  .file__td {
-    padding: 10px 0;
+  &:hover {
+    background: #ccccccb2;
   }
 
-  .file__td:first-child {
-    padding: 10px 0;
+  &__td {
+    padding: 10px 20px;
   }
 
-  .file__icon {
-    display: none;
+  &__edit,
+  &__download {
+    transition: 0.3s;
   }
 
-  .file__name {
-    margin-left: 0;
+  &__edit {
+    background-color: #ffebb2;
+    border-radius: 3px;
+    border: 1px solid #d6b656;
+    margin-right: 10px;
+
+    &:hover {
+      background-color: #e9c975;
+    }
+  }
+
+  &__download {
+    background-color: #f58383;
+    border-radius: 3px;
+    border: 1px solid #cc5b5b;
+
+    &:hover {
+      background-color: #dd6c6c;
+    }
+  }
+
+  &__options {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__optionsIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    cursor: pointer;
+    outline: none;
+    
+    @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+    }
+  }
+
+  & .editIco,
+  & .downloadIco {
+    font-size: 20px;
+    color: #6a6666;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 }
