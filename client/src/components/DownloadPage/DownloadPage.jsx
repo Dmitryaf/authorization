@@ -5,7 +5,10 @@ import style from './DownloadPage.module.scss';
 function DownloadPage() {
   let formData = new FormData();
   const [file, setFile] = useState(null);
+  const [isDownload, setIsdownload] = useState(false);
+  const notificationText = isDownload ? 'Файл загружен' : null;
   const inputRef = useRef(null);
+
   const download = () => {
     inputRef.current.click();
   };
@@ -19,10 +22,13 @@ function DownloadPage() {
       axios
         .post('http://localhost:5000/download', formData)
         .then((response) => {
-          console.log(response.data);
+          if (response.status === 201) {
+            setIsdownload(true);
+          }
         })
         .catch((error) => {
           console.log(error);
+          setIsdownload(false);
         });
     }
   }, [file]);
@@ -31,6 +37,7 @@ function DownloadPage() {
     <div className='container'>
       <form className={style.downloadPage}>
         <h2 className='title'>Загрузите файл</h2>
+        <p className={style.notification}>{notificationText}</p>
         <input
           className={style.input}
           ref={inputRef}

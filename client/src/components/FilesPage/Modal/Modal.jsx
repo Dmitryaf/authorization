@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { newModalText, toogleModal } from '../../../redux/filesPage-reducer';
+import Preloader from '../../common/Preloader';
 import style from './Modal.module.scss';
 
 function Modal(props) {
-  const { id, name, text, handleUpdate } = props;
-  const modalText = useSelector((state) => state.filesPage.modal.content);
+  const { name, handleUpdate } = props;
+
   const dispatch = useDispatch();
   const textareaRef = useRef();
 
@@ -13,6 +14,8 @@ function Modal(props) {
     let text = textareaRef.current.value;
     dispatch(newModalText(text));
   };
+
+  const modalText = useSelector((state) => state.filesPage.modal.content);
 
   return (
     <div className={style.modal}>
@@ -24,13 +27,17 @@ function Modal(props) {
             handleUpdate(name, modalText);
           }}
         >
-          <textarea
-            ref={textareaRef}
-            type='text'
-            className={style.modal__textarea}
-            onChange={handleChange}
-            value={modalText}
-          ></textarea>
+          {modalText ? (
+            <textarea
+              ref={textareaRef}
+              type='text'
+              className={style.modal__textarea}
+              onChange={handleChange}
+              value={modalText}
+            ></textarea>
+          ) : (
+            <Preloader />
+          )}
 
           <div className={style.modal__btns}>
             <button className='btn' type='submit'>
