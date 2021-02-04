@@ -17,10 +17,16 @@ body {
   color: #fff;
   border: none;
   background: #007bff;
+  border-bottom: 2px solid #025fc4;
   border-radius: 5px;
-  padding: 15px 35px;
+  padding: 8px 25px;
   cursor: pointer;
   outline: none;
+  transition: .3s;
+
+  &:hover {
+    background: #025fc4;
+  }
 }
 
 .container {
@@ -45,22 +51,22 @@ table {
 
 .files {
   margin: 50px 0;
-}
 
-.files__title {
-  font-size: 30px;
-  margin-bottom: 20px;
-}
+  &__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
 
-.files__thead-tr {
-  background-color: #f6f6f6;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
-}
+  &__thead-tr {
+    background-color: #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
 
-.files__thead-td {
-  font-weight: bold;
-  width: 200px;
-  padding: 10px 50px;
+  &__thead-td {
+    font-weight: bold;
+    width: 200px;
+    padding: 10px 50px;
+  }
 }
