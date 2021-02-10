@@ -1,4 +1,5 @@
 {
   "serverPort": 5000,
-  "mongoURI": "mongodb+srv://dmitrii:gKNtjVGPHGsuY5tE@cluster0.4jjnp.mongodb.net/FileEditor?retryWrites=true&w=majority',"
+  "mongoURI": "mongodb+srv://dmitrii:gKNtjVGPHGsuY5tE@cluster0.4jjnp.mongodb.net/FileEditor?retryWrites=true&w=majority",
+  "jwt": "jwt-secret-key"
 }
