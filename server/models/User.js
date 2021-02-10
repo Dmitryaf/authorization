@@ -1,5 +1,4 @@
-const { Schema, model } = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema, model, ObjectId } = require('mongoose');
 
 const User = new Schema({
   email: { type: String, required: true, unique: true },
@@ -7,4 +6,4 @@ const User = new Schema({
   files: [{ type: ObjectId, ref: 'File' }],
 });
 
-module.exports = model('User', fileSchema);
+module.exports = model('User', User);
