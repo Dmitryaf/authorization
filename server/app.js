@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const config = require('config');
 const app = express();
 
+const authRoute = require('./routes/auth');
 const downloadRoute = require('./routes/download');
 const filesRoute = require('./routes/files');
 
@@ -26,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(require('cors')());
 
+app.use('/api/auth', authRoute);
 app.use('/download', downloadRoute);
 app.use('/files', filesRoute);
 
