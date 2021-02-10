@@ -27,15 +27,6 @@ export const filesPageReducer = (state = initialState, action) => {
         },
       };
 
-    case NEW_MODAL_TEXT:
-      return {
-        ...state,
-        modal: {
-          currentItemId: state.modal.currentItemId,
-          isOpen: state.modal.isOpen,
-          content: action.content,
-        },
-      };
     default:
       return { ...state };
   }
@@ -49,9 +40,4 @@ export const setFiles = (files) => ({
 export const toogleModal = (id) => ({
   type: MODAL,
   id,
-});
-
-export const newModalText = (content) => ({
-  type: NEW_MODAL_TEXT,
-  content,
 });

@@ -6,8 +6,9 @@ import { toogleModal } from '../../../redux/filesPage-reducer';
 import styles from './File.module.scss';
 
 function File(props) {
-  const { id, name, handleDownload } = props;
+  const { id, name } = props;
   const dispatch = useDispatch();
+
   return (
     <tr className={styles.file}>
       <td className={styles.file__td}>
@@ -20,7 +21,6 @@ function File(props) {
             className={`${styles.file__edit} ${styles.file__optionsIcon}`}
             onClick={() => {
               dispatch(toogleModal(id));
-              handleDownload(name);
             }}
           >
             <FontAwesomeIcon className={styles.editIco} icon={faPencilAlt} />

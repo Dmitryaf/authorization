@@ -14,29 +14,6 @@ function FilesPage() {
   const [fileText, setFileText] = useState('');
   const [isLoading, setIsloading] = useState(false);
 
-  let handleDownload = async (fileName) => {
-    const text = await axios
-      .post(
-        'http://localhost:5000/uploads',
-        { fileName },
-        { responseType: 'text' }
-      )
-      .then((response) => {
-        return response.data;
-      });
-    setFileText(text);
-    dispatch(newModalText(text));
-  };
-
-  const handleUpdate = async (fileName, content) => {
-    axios
-      .put('http://localhost:5000/uploads', { fileName, content })
-      .then((response) => {
-        console.log(response);
-        return response.data;
-      });
-  };
-
   useEffect(() => {
     axios
       .get('http://localhost:5000/files')
@@ -59,14 +36,7 @@ function FilesPage() {
           <tbody className='files__list'>
             {files.length ? (
               files.map((file) => {
-                return (
-                  <File
-                    id={file._id}
-                    name={file.name}
-                    key={file._id}
-                    handleDownload={handleDownload}
-                  />
-                );
+                return <File id={file._id} name={file.name} key={file._id} />;
               })
             ) : (
               <tr className='files__empty'>
@@ -87,7 +57,6 @@ function FilesPage() {
               name={file.name}
               text={fileText}
               key={file._id}
-              handleUpdate={handleUpdate}
             />
           );
         }
