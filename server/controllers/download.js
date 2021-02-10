@@ -1,4 +1,4 @@
-const File = require('../model/File');
+const File = require('../models/File');
 const uuid = require('uuid');
 
 module.exports.create = async function (req, res) {

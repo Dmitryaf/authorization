@@ -1,4 +1,4 @@
-const File = require('../model/File');
+const File = require('../models/File');
 
 module.exports.getAll = async function (req, res) {
   try {

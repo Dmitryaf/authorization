@@ -1,16 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const config = require('config');
 const app = express();
 
 const downloadRoute = require('./routes/download');
 const filesRoute = require('./routes/files');
 
-const key = require('./config/key');
-
 mongoose
-  .connect(key.mongoURI, {
+  .connect(config.get('mongoURI'), {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
