@@ -1,6 +1,5 @@
 const GET_FILES = 'GET_FILES';
 const MODAL = 'MODAL';
-const NEW_MODAL_TEXT = 'NEW_MODAL_TEXT';
 
 let initialState = {
   files: [],
