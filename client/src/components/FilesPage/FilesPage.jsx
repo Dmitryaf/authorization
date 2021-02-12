@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import File from './File/File';
 import { newModalText, setFiles } from '../../redux/filesPage-reducer';
-import Modal from './Modal/Modal';
+import Modal from '../Modal/Modal';
 import Preloader from '../common/Preloader';
 
 function FilesPage() {

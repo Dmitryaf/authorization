@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toogleModal } from '../../../redux/filesPage-reducer';
-import Preloader from '../../common/Preloader';
+import { toogleModal } from '../../redux/filesPage-reducer';
 import style from './Modal.module.scss';
 
 function Modal(props) {
@@ -13,7 +12,7 @@ function Modal(props) {
       <div className={style.modal__body}>
         <h2 className={style.modal__title}> {name} </h2>
         <form className={style.modal__form}>
-          <textarea type='text' className={style.modal__textarea}></textarea>
+          <textarea type='text' className='textarea'></textarea>
 
           <div className={style.modal__btns}>
             <button className='btn' type='submit'>
