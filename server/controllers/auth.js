@@ -5,30 +5,29 @@ const config = require('config');
 const User = require('../models/User');
 
 module.exports.login = async (req, res) => {
-  const candidate = await User.findOne({ email: req.body.email });
+  const user = await User.findOne({ email: req.body.email });
 
-  if (candidate) {
-    const passwordResult = bcrypt.compareSync(
-      req.body.password,
-      candidate.password
-    );
+  if (user) {
+    const passwordResult = bcrypt.compareSync(req.body.password, user.password);
 
     if (passwordResult) {
       const token = jwt.sign(
         {
-          email: candidate.email,
-          userId: candidate._id,
+          email: user.email,
+          userId: user._id,
         },
-        config.get('jwt'),
+        config.get('secretKey'),
         { expiresIn: 60 * 60 }
       );
 
       res.status(200).json({
         token: `Bearer ${token}`,
+        email: user.email,
+        id: user._id,
       });
     } else {
       res.status(401).json({
-        message: 'Пароли не совпадают',
+        message: 'Неверный пароль',
       });
     }
   } else {
