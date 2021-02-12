@@ -1,4 +1,7 @@
 
+@import './components/FilesPage/Files.scss';
+@import './components/authorization/authorization.scss';
+
 * {
   margin: 0;
   padding: 0;
@@ -50,29 +53,27 @@ table {
   border-collapse: collapse;
 }
 
-.files {
-  margin: 50px 0;
+textarea, input {
+      font-family: 'Roboto',
+      sans-serif;
+      font-size: 16px;
+      color: #000;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+      padding: 5px;
+      transition: 0.3;
+      outline: none;
 
-  &__title {
-    font-size: 30px;
-    margin-bottom: 20px;
-  }
+      &:focus {
+        border-color: #007bff;
+      }
+}
 
-  &__thead-tr {
-    background-color: #f6f6f6;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-  }
+input {
+  height: 40px;
+}
 
-  &__thead-td {
-    font-weight: bold;
-    width: 200px;
-    padding: 10px 50px;
-  }
-
-  &__empty {
-    font-size: 18px;
-    text-align: center;
-  }
+textarea {
+  height: 150px;
 }
