@@ -1,17 +1,21 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import { Route, Redirect } from 'react-router-dom';
-import DownloadPage from './components/DownloadPage/DownloadPage';
-import FilesPage from './components/FilesPage/FilesPage';
+import { Route, Redirect, BrowserRouter, Switch } from 'react-router-dom';
+import Login from './components/Authorization/Login';
+import Registration from './components/Authorization/Registration';
 
 function App() {
   return (
-    <div className='App'>
-      <Header />
-      <Route path='/download' render={() => <DownloadPage />} />
-      <Route path='/files' render={() => <FilesPage />} />
-      <Redirect from='/' to='/files' />
-    </div>
+    <BrowserRouter>
+      <div className='App'>
+        <Header />
+        <Switch>
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={Registration} />
+          <Redirect from='/' to='/login' />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
