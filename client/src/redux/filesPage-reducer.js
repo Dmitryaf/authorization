@@ -3,6 +3,7 @@ const MODAL = 'MODAL';
 
 let initialState = {
   files: [],
+  isAuth: false,
   modal: {
     currentItemId: null,
     isOpen: false,
