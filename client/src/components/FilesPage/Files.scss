@@ -1,0 +1,26 @@
+.files {
+  margin: 50px 0;
+
+  &__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  &__thead-tr {
+    background-color: #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+
+  &__thead-td {
+    font-weight: bold;
+    width: 200px;
+    padding: 10px 50px;
+  }
+
+  &__empty {
+    font-size: 18px;
+    text-align: center;
+  }
+}
