@@ -28,7 +28,7 @@ function Login() {
           ></input>
         </div>
 
-        <button className='form__btn btn'>Войти</button>
+        <button className='form__btn btn btn--login'>Войти</button>
       </form>
     </div>
   );

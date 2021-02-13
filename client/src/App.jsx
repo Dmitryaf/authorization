@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './components/Header/Header';
 import { Route, Redirect, BrowserRouter, Switch } from 'react-router-dom';
-import Login from './components/Authorization/Login';
-import Registration from './components/Authorization/Registration';
+import Login from './components/authorization/Login';
+import Registration from './components/authorization/Registration';
 
 function App() {
   return (

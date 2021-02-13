@@ -1,6 +1,6 @@
 .header {
     background-color: #6c757d;
-    height: 70px;
+    height: 50px;
     display: flex;
     justify-content: flex-end;
     border-bottom: 2px solid #a0a0a0;
@@ -10,7 +10,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  
 }
 
 .link {
@@ -18,11 +17,11 @@
     display: flex;
     justify-content: center;
     color: #fff;
-    width: 150px;
+    width: 130px;
     height: 100%;
     padding: 10px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     transition: .3s;
 
     &:hover {
@@ -32,4 +31,8 @@
 
 .active {
     background-color: #17a2b8;
+
+    &:hover {
+        background-color: #198c9e;
+    }
 }

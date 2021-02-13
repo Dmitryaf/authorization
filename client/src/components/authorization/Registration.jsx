@@ -28,7 +28,9 @@ function Registration() {
           ></input>
         </div>
 
-        <button className='form__btn btn'>Зарегистрироваться</button>
+        <button className='form__btn btn btn--registration'>
+          Зарегистрироваться
+        </button>
       </form>
     </div>
   );
