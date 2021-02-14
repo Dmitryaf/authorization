@@ -11,14 +11,14 @@ function Header() {
           activeClassName={styles.active}
           className={styles.link}
         >
-          <span>Войти</span>
+          <span>Sign in</span>
         </NavLink>
         <NavLink
           to='/register'
           activeClassName={styles.active}
           className={styles.link}
         >
-          <span>Регистрация</span>
+          <span>Sign up</span>
         </NavLink>
       </div>
     </div>

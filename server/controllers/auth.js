@@ -27,12 +27,12 @@ module.exports.login = async (req, res) => {
       });
     } else {
       res.status(401).json({
-        message: 'Неверный пароль',
+        message: 'Invalid password',
       });
     }
   } else {
     res.status(404).json({
-      message: 'Пользователь не найден',
+      message: 'User is not found',
     });
   }
 };
@@ -43,7 +43,7 @@ module.exports.register = async (req, res) => {
 
   if (candidate) {
     res.status(409).json({
-      message: 'Такой email уже существует',
+      message: 'Email already exist',
     });
   } else {
     const salt = bcrypt.genSaltSync(10);
