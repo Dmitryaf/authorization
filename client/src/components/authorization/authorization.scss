@@ -1,10 +1,12 @@
 .auth-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e9faff;
   width: 100%;
-  max-width: 400px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 100px auto;
-  padding: 35px 25px;
+  min-height: 100vh;
+  padding: 15px;
 }
 
 .form {
@@ -12,21 +14,69 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 0 15px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 450px;
+  padding: 35px 25px;
 
   &__field {
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 0 10px;
-  }
-
-  &__label {
-    display: inline-block;
-    width: 115px;
+    flex-direction: column;
+    margin: 0 0 20px;
+    z-index: 1;
   }
 
   &__btn {
     margin: 20px 0 0;
+  }
+
+  &__input {
+    &:focus + &-focus {
+      animation: anim-shadow .5s ease-in-out forwards
+    }
+
+    &:focus + &-focus + &-icon {
+      color: #007bff;
+      padding-left: 15px;
+    }
+
+    &-icon {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      font-size: 15px;
+      color: #666;
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+      padding-left: 20px;
+      pointer-events: none;
+      transition: all .4s;
+    }
+
+    &-focus {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0 0;
+      color: rgba(0, 123, 255, 0.5);
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  }
+}
+
+@keyframes anim-shadow {
+  to {
+    box-shadow: 0 0 70px 25px;
+    opacity: 0
   }
 }

@@ -63,26 +63,26 @@ table {
 }
 
 textarea, input {
-      font-family: 'Roboto',
-      sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 16px;
       color: #000;
       border: 1px solid #ccc;
       border-radius: 5px;
       width: 100%;
-      padding: 5px;
       transition: all 0.3s;
       outline: none;
-
-      &:focus {
-        border-color: #007bff;
-      }
 }
 
 input {
-  height: 35px;
+  height: 45px;
+  padding: 0 30px 0 50px;
 }
 
 textarea {
   height: 150px;
+  padding: 5px;
+  
+  &:focus {
+    border-color: #007bff;
+  }
 }
