@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 app.use(require('cors')());
 
 app.use('/api/auth', authRoute);
-app.use('/download', downloadRoute);
-app.use('/files', filesRoute);
+app.use('/api/download', downloadRoute);
+app.use('/api/files', filesRoute);
 
 module.exports = app;
