@@ -7,12 +7,12 @@ import Registration from './components/authorization/Registration';
 function App() {
   return (
     <BrowserRouter>
-      <div className='App'>
+      <div className="App">
         <Header />
         <Switch>
-          <Route path='/login' component={Login} />
-          <Route path='/register' component={Registration} />
-          <Redirect from='/' to='/login' />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Registration} />
+          <Redirect from="/" to="/login" />
         </Switch>
       </div>
     </BrowserRouter>

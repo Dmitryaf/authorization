@@ -34,17 +34,17 @@ function DownloadPage() {
   }, [file]);
 
   return (
-    <div className='container'>
+    <div className="container">
       <form className={style.downloadPage}>
-        <h2 className='title'>Загрузите файл</h2>
+        <h2 className="title">Загрузите файл</h2>
         <p className={style.notification}>{notificationText}</p>
         <input
           className={style.input}
           ref={inputRef}
-          type='file'
+          type="file"
           onChange={handleChangeFile}
         />
-        <button type='button' className='btn' onClick={download}>
+        <button type="button" className="btn" onClick={download}>
           Загрузить
         </button>
       </form>

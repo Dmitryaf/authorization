@@ -29,17 +29,17 @@ function FilesPage() {
   }, []);
 
   return (
-    <div className='container'>
-      <h2 className='title'>Список файлов</h2>
+    <div className="container">
+      <h2 className="title">Список файлов</h2>
       {isLoading ? (
-        <table className='files'>
-          <tbody className='files__list'>
+        <table className="files">
+          <tbody className="files__list">
             {files.length ? (
               files.map((file) => {
                 return <File id={file._id} name={file.name} key={file._id} />;
               })
             ) : (
-              <tr className='files__empty'>
+              <tr className="files__empty">
                 <td>Файлы отсутсвуют</td>
               </tr>
             )}

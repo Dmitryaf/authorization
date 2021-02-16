@@ -6,7 +6,7 @@ export const registration = async (email, password) => {
       'http://localhost:5000/api/auth/register',
       {
         email,
-        password,
+        password
       }
     );
     alert(response.data.message);

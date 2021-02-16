@@ -7,8 +7,8 @@ let initialState = {
   modal: {
     currentItemId: null,
     isOpen: false,
-    content: null,
-  },
+    content: null
+  }
 };
 
 export const filesPageReducer = (state = initialState, action) => {
@@ -16,15 +16,15 @@ export const filesPageReducer = (state = initialState, action) => {
     case GET_FILES:
       return {
         ...state,
-        files: action.files,
+        files: action.files
       };
     case MODAL:
       return {
         ...state,
         modal: {
           currentItemId: action.id,
-          isOpen: !state.modal.isOpen,
-        },
+          isOpen: !state.modal.isOpen
+        }
       };
 
     default:
@@ -34,10 +34,10 @@ export const filesPageReducer = (state = initialState, action) => {
 
 export const setFiles = (files) => ({
   type: GET_FILES,
-  files,
+  files
 });
 
 export const toogleModal = (id) => ({
   type: MODAL,
-  id,
+  id
 });

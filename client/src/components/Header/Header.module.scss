@@ -1,35 +1,35 @@
 .header {
-    display: flex;
-    justify-content: flex-end;
-    background-color: #cccccc2b;
-    border-bottom: 2px solid #d7d4d4;
-    height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #cccccc2b;
+  border-bottom: 2px solid #d7d4d4;
+  height: 50px;
 }
 
 .btns {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .link {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    font-size: 18px;
-    color: #fff;
-    background-color: #17a2b8;
-    width: 130px;
-    height: 100%;
-    padding: 10px;
-    text-decoration: none;
-    transition: .3s;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+  background-color: #17a2b8;
+  width: 130px;
+  height: 100%;
+  padding: 10px;
+  text-decoration: none;
+  transition: 0.3s;
 
-    &:hover {
-        background-color: #198c9e;
-    }
+  &:hover {
+    background-color: #198c9e;
+  }
 }
 
 .active {
-    background-color: #198c9e;
+  background-color: #198c9e;
 }

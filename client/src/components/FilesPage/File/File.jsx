@@ -14,10 +14,10 @@ function File(props) {
       <td className={styles.file__td}>
         <span className={styles.file__name}>{name}</span>
       </td>
-      <td colSpan='5' className={styles.file__td}>
+      <td colSpan="5" className={styles.file__td}>
         <div className={styles.file__options}>
           <button
-            type='button'
+            type="button"
             className={`${styles.file__edit} ${styles.file__optionsIcon}`}
             onClick={() => {
               dispatch(toogleModal(id));
@@ -26,7 +26,7 @@ function File(props) {
             <FontAwesomeIcon className={styles.editIco} icon={faPencilAlt} />
           </button>
           <button
-            type='button'
+            type="button"
             className={`${styles.file__download} ${styles.file__optionsIcon}`}
           >
             <FontAwesomeIcon

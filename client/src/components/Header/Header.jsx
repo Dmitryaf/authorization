@@ -7,14 +7,14 @@ function Header() {
     <div className={styles.header}>
       <div className={styles.btns}>
         <NavLink
-          to='/login'
+          to="/login"
           activeClassName={styles.active}
           className={styles.link}
         >
           <span>Sign in</span>
         </NavLink>
         <NavLink
-          to='/register'
+          to="/register"
           activeClassName={styles.active}
           className={styles.link}
         >
