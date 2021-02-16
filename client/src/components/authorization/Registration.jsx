@@ -2,18 +2,29 @@ import React, { useState } from 'react';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { registration } from '../../actions/user';
+import { useInput } from '../../hooks/useInput';
 
 function Registration() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const email = useInput('', { isEmpty: true, isEmail: true });
+  const password = useInput('', { isEmpty: true, minLength: 5 });
 
   return (
     <div className='auth-container'>
-      <form className='form' onSubmit={() => registration(email, password)}>
+      <form className='form' onSubmit={() => registration()}>
+        <h2 className='form__title'>Create your account</h2>
+        {(!email.inputValid && email.isTouch) ||
+        (!password.inputValid && password.isTouch) ? (
+          <span className='error'>
+            Please provide a valid email and password.
+          </span>
+        ) : (
+          ''
+        )}
         <div className='form__field'>
           <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={email.value}
+            onBlur={email.onBlur}
+            onChange={(e) => email.onChange(e)}
             type='text'
             name='email'
             className='form__input'
@@ -27,8 +38,9 @@ function Registration() {
 
         <div className='form__field'>
           <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={password.value}
+            onBlur={password.onBlur}
+            onChange={(e) => password.onChange(e)}
             type='password'
             name='password'
             className='form__input'
@@ -40,7 +52,12 @@ function Registration() {
           </span>
         </div>
 
-        <button className='form__btn btn btn--registration'>Sign up</button>
+        <button
+          disabled={!email.inputValid || !password.inputValid}
+          className='form__btn btn btn--registration'
+        >
+          Sign up
+        </button>
       </form>
     </div>
   );
