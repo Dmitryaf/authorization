@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-
 const User = require('../models/User');
 
 module.exports.login = async (req, res) => {
@@ -39,10 +38,9 @@ module.exports.login = async (req, res) => {
 
 module.exports.register = async (req, res) => {
   const candidate = await User.findOne({ email: req.body.email });
-  console.log(req.body);
 
   if (candidate) {
-    res.status(409).json({
+    res.send({
       message: 'Email already exist',
     });
   } else {
@@ -58,7 +56,7 @@ module.exports.register = async (req, res) => {
       await user.save();
       res.status(201).json(user);
     } catch (error) {
-      res.status(500).json({
+      res.send({
         success: false,
         message: error.message ? error.message : error,
       });
