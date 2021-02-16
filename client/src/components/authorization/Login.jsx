@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <div className='auth-container'>
       <form className='form'>
         <div className='form__field'>
           <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             type='text'
             name='email'
             className='form__input'
@@ -21,7 +26,9 @@ function Login() {
 
         <div className='form__field'>
           <input
-            type='text'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type='password'
             name='password'
             className='form__input'
             placeholder='password'
