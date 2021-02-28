@@ -21,11 +21,16 @@ mongoose
     console.log(error);
   });
 
-app.use('/uploads', express.static('uploads'));
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(require('cors')());
+app.use(
+  require('cors')({
+    origin: '*',
+    methods: 'GET, PUT, PATCH, POST, DELETE',
+    allowedHeaders: 'Content-Type'
+  })
+);
 
 app.use('/api/auth', authRoute);
 app.use('/api/download', downloadRoute);
