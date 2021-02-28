@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch } from 'react-redux';
+import { login } from '../../actions/user';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   return (
     <div className='auth-container'>
-      <form className='form'>
+      <div className='form'>
+        <h2 className='form__title'>Log in your account</h2>
         <div className='form__field'>
           <input
             value={email}
@@ -39,8 +43,13 @@ function Login() {
           </span>
         </div>
 
-        <button className='form__btn btn btn--login'>Sign in</button>
-      </form>
+        <button
+          onClick={() => dispatch(login(email, password))}
+          className='form__btn btn btn--auth'
+        >
+          Log in
+        </button>
+      </div>
     </div>
   );
 }
