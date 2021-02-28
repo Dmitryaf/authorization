@@ -13,17 +13,20 @@
 }
 
 .link {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: center;
   font-size: 18px;
   color: #fff;
   background-color: #17a2b8;
+  border: none;
   width: 130px;
   height: 100%;
   padding: 10px;
   text-decoration: none;
   transition: 0.3s;
+  cursor: pointer;
+  outline: none;
 
   &:hover {
     background-color: #198c9e;
