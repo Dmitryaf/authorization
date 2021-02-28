@@ -1,16 +1,35 @@
 import axios from 'axios';
+import { setUser } from '../redux/userReducer';
 
 export const registration = async (email, password) => {
   try {
     const response = await axios.post(
-      'http://localhost:5000/api/auth/register',
+      `http://localhost:5000/api/auth/registration`,
       {
         email,
-        password
+        password,
       }
     );
     alert(response.data.message);
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    alert(e.response.data.message);
   }
+};
+
+export const login = (email, password) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/api/auth/login`,
+        {
+          email,
+          password,
+        }
+      );
+      dispatch(setUser(response.data.user));
+      localStorage.setItem('token', response.data.token);
+    } catch (e) {
+      alert(e.response.data.message);
+    }
+  };
 };
