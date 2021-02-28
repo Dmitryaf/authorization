@@ -10,7 +10,7 @@ function Registration() {
 
   return (
     <div className='auth-container'>
-      <form className='form' onSubmit={() => registration()}>
+      <div className='form'>
         <h2 className='form__title'>Create your account</h2>
         {(!email.inputValid && email.isTouch) ||
         (!password.inputValid && password.isTouch) ? (
@@ -54,11 +54,12 @@ function Registration() {
 
         <button
           disabled={!email.inputValid || !password.inputValid}
-          className='form__btn btn btn--registration'
+          className='form__btn btn btn--auth'
+          onClick={() => registration(email.value, password.value)}
         >
           Sign up
         </button>
-      </form>
+      </div>
     </div>
   );
 }
