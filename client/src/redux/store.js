@@ -1,8 +1,9 @@
-import { combineReducers, createStore } from 'redux';
-import { filesPageReducer } from './filesPage-reducer';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import userReducer from './userReducer';
+import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
-  filesPage: filesPageReducer
+  userReducer: userReducer,
 });
 
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, applyMiddleware(thunk));
