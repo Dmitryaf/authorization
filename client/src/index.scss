@@ -26,8 +26,7 @@ body {
   outline: none;
   transition: 0.3s;
 
-  &--login,
-  &--registration {
+  &--auth {
     color: #fff;
     background-position: 100%;
     background-size: 400%;
