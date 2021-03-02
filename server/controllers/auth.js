@@ -4,37 +4,40 @@ const config = require('config');
 const User = require('../models/User');
 
 module.exports.login = async (req, res) => {
-  const user = await User.findOne({ email: req.body.email });
+  try {
+    const user = await User.findOne({ email: req.body.email });
 
-  if (user) {
-    const passwordResult = bcrypt.compareSync(req.body.password, user.password);
-
-    if (passwordResult) {
-      const token = jwt.sign(
-        {
-          email: user.email,
-          userId: user._id
-        },
-        config.get('secretKey'),
-        { expiresIn: 60 * 60 }
+    if (user) {
+      const passwordResult = bcrypt.compareSync(
+        req.body.password,
+        user.password
       );
 
-      res.status(200).json({
-        token: `Bearer ${token}`,
-        user: {
-          email: user.email,
-          id: user._id
-        }
-      });
+      if (passwordResult) {
+        const token = jwt.sign({ id: user.id }, config.get('secretKey'), {
+          expiresIn: '1h'
+        });
+
+        res.status(200).json({
+          token: `Bearer ${token}`,
+          user: {
+            email: user.email,
+            id: user.id
+          }
+        });
+      } else {
+        res.status(401).json({
+          message: 'Invalid password'
+        });
+      }
     } else {
-      res.status(401).json({
-        message: 'Invalid password'
+      res.status(404).json({
+        message: 'User is not found'
       });
     }
-  } else {
-    res.status(404).json({
-      message: 'User is not found'
-    });
+  } catch (e) {
+    console.log(e);
+    res.send({ message: 'Server error' });
   }
 };
 
@@ -65,5 +68,24 @@ module.exports.register = async (req, res) => {
         message: error.message ? error.message : error
       });
     }
+  }
+};
+
+module.exports.auth = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.user.id });
+    const token = jwt.sign({ id: user.id }, config.get('secretKey'), {
+      expiresIn: '1h'
+    });
+    return res.json({
+      token,
+      user: {
+        id: user.id,
+        email: user.email
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res.send({ message: 'Server error' });
   }
 };
