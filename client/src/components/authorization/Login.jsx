@@ -50,7 +50,7 @@ function Login() {
           </span>
         </div>
 
-        <button type='submit' className='form__btn btn btn--auth'>
+        <button type='submit' className='form__btn btn btn--animate'>
           Log in
         </button>
       </form>
