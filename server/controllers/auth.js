@@ -2,16 +2,16 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const User = require('../models/User');
+const File = require('../models/File');
+const fileService = require('../services/fileService');
 
 module.exports.login = async (req, res) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
 
     if (user) {
-      const passwordResult = bcrypt.compareSync(
-        req.body.password,
-        user.password
-      );
+      const passwordResult = bcrypt.compareSync(password, user.password);
 
       if (passwordResult) {
         const token = jwt.sign({ id: user.id }, config.get('secretKey'), {
@@ -41,24 +41,26 @@ module.exports.login = async (req, res) => {
   }
 };
 
-module.exports.register = async (req, res) => {
-  const candidate = await User.findOne({ email: req.body.email });
+module.exports.registration = async (req, res) => {
+  const { email, password } = req.body;
+  const candidate = await User.findOne({ email });
 
   if (candidate) {
     res.status(409).json({
-      message: `User with email ${req.body.email} already exist`
+      message: `User with email ${email} already exist`
     });
   } else {
     const salt = bcrypt.genSaltSync(10);
-    const password = req.body.password;
+    const reqPassword = password;
 
     const user = new User({
-      email: req.body.email,
-      password: bcrypt.hashSync(password, salt)
+      email,
+      password: bcrypt.hashSync(reqPassword, salt)
     });
 
     try {
       await user.save();
+      await fileService.createDir(new File({ user: user.id, name: '' }));
       res.status(201).json({
         message: 'User created'
       });
