@@ -14,9 +14,15 @@ export const useInput = (initialState, validations) => {
     setTouch(true);
   };
 
+  const resetValue = () => {
+    setValue('');
+    setTouch(false);
+  };
+
   return {
     value,
     isTouch,
+    resetValue,
     onChange,
     onBlur,
     ...valid,
