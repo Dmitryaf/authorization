@@ -9,9 +9,16 @@ function Login() {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(login(email, password));
+    setEmail('');
+    setPassword('');
+  };
+
   return (
     <div className='auth-container'>
-      <div className='form'>
+      <form className='form' onSubmit={(e) => submitHandler(e)}>
         <h2 className='form__title'>Log in your account</h2>
         <div className='form__field'>
           <input
@@ -43,13 +50,10 @@ function Login() {
           </span>
         </div>
 
-        <button
-          onClick={() => dispatch(login(email, password))}
-          className='form__btn btn btn--auth'
-        >
+        <button type='submit' className='form__btn btn btn--auth'>
           Log in
         </button>
-      </div>
+      </form>
     </div>
   );
 }

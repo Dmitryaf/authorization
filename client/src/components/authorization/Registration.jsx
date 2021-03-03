@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { registration } from '../../actions/user';
@@ -8,9 +8,16 @@ function Registration() {
   const email = useInput('', { isEmpty: true, isEmail: true });
   const password = useInput('', { isEmpty: true, minLength: 5 });
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    registration(email.value, password.value);
+    email.resetValue();
+    password.resetValue();
+  };
+
   return (
     <div className='auth-container'>
-      <div className='form'>
+      <form className='form' onSubmit={(e) => submitHandler(e)}>
         <h2 className='form__title'>Create your account</h2>
         {(!email.inputValid && email.isTouch) ||
         (!password.inputValid && password.isTouch) ? (
@@ -53,13 +60,13 @@ function Registration() {
         </div>
 
         <button
+          type='submit'
           disabled={!email.inputValid || !password.inputValid}
           className='form__btn btn btn--auth'
-          onClick={() => registration(email.value, password.value)}
         >
           Sign up
         </button>
-      </div>
+      </form>
     </div>
   );
 }
