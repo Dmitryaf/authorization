@@ -1,0 +1,17 @@
+.disk {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  width: 100%;
+  max-width: 850px;
+  padding: 40px 25px;
+  margin: 50px auto;
+
+  &__btns {
+    display: flex;
+    flex: 0 0 auto;
+    align-self: flex-start;
+  }
+}
