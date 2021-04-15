@@ -34,7 +34,7 @@ module.exports.getFiles = async function (req, res) {
       user: req.user.id,
       parent: req.query.parent
     });
-    return res.status(200).json(files);
+    return res.status(200).json({files});
   } catch (e) {
     console.log(e);
     return res.status(400).json({
