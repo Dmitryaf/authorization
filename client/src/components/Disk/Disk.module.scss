@@ -11,7 +11,7 @@
 
   &__btns {
     display: flex;
-    flex: 0 0 auto;
+    flex-direction: column;
     align-self: flex-start;
   }
 }

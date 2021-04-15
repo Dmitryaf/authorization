@@ -19,7 +19,7 @@ function Login() {
   return (
     <div className='auth-container'>
       <form className='form' onSubmit={(e) => submitHandler(e)}>
-        <h2 className='form__title'>Log in your account</h2>
+        <h2 className='form__title'>Войдите в свой аккаунт</h2>
         <div className='form__field'>
           <input
             value={email}
@@ -50,7 +50,7 @@ function Login() {
           </span>
         </div>
 
-        <button type='submit' className='form__btn btn btn--animate'>
+        <button type='submit' className='form__btn btn btn_animate'>
           Войти
         </button>
       </form>

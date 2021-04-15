@@ -1,4 +1,5 @@
 @import './components/authorization/authorization.scss';
+@import './scss/variables';
 
 * {
   margin: 0;
@@ -6,33 +7,35 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
+html {
+  font-family: 'Roboto', 'Arial',
+    sans-serif;
   font-size: 14px;
+  color: $black;
 }
 
 .btn {
   display: flex;
   align-self: center;
-  font-size: 16px;
-  color: #fff;
+  font-size: 1.143rem;
+  color: $white;
   border: none;
-  background: #007bff;
-  border-bottom: 2px solid #025fc4;
+  background: $blue;
+  border-bottom: 2px solid darken($blue, 10);
   border-radius: 5px;
   padding: 8px 25px;
   cursor: pointer;
   outline: none;
   transition: 0.3s;
 
-  &--animate {
-    color: #fff;
+  &_animate {
+    color: $white;
     background-position: 100%;
     background-size: 400%;
     background-image: -webkit-linear-gradient(45deg,
-        #025fc4 50%,
+        darken($blue, 10) 50%,
         transparent 50%);
-    background-image: linear-gradient(45deg, #025fc4 50%, transparent 50%);
+    background-image: linear-gradient(45deg, darken($blue, 10) 50%, transparent 50%);
     transition: background 500ms ease-in-out;
 
     &:hover {
@@ -40,13 +43,21 @@ body {
     }
   }
 
-  &--mr {
+  &_mr {
     margin-right: 20px;
   }
 
+  &_mb {
+    margin-bottom: 10px;
+  }
+
+  &_align_start {
+    align-self: flex-start;
+  }
+
   &:disabled {
-    background: #6c757d;
-    border-color: #6c757d;
+    background: $gray;
+    border-color: $gray;
     cursor: not-allowed;
   }
 }
@@ -60,9 +71,9 @@ body {
 }
 
 .title {
-  font-size: 24px;
+  font-size: 1.714rem;
   font-weight: 500;
-  color: #6c757d;
+  color: $gray;
   text-align: center;
 }
 
@@ -75,9 +86,9 @@ table {
 textarea,
 input {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  color: #000;
-  border: 1px solid #ccc;
+  font-size: 1.143rem;
+  color: $black;
+  border: 1px solid $grayLight;
   border-radius: 5px;
   width: 100%;
   transition: all 0.3s;
@@ -94,7 +105,7 @@ textarea {
   padding: 5px;
 
   &:focus {
-    border-color: #007bff;
+    border-color: $blue;
   }
 }
 
@@ -103,5 +114,5 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: red;
+  color: $red;
 }

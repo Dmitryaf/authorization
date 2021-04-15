@@ -18,11 +18,11 @@ function Registration() {
   return (
     <div className='auth-container'>
       <form className='form' onSubmit={(e) => submitHandler(e)}>
-        <h2 className='form__title'>Create your account</h2>
+        <h2 className='form__title'>Создайте аккаунт</h2>
         {(!email.inputValid && email.isTouch) ||
         (!password.inputValid && password.isTouch) ? (
           <span className='error'>
-            Please provide a valid email and password.
+            Пожалуйста, укажите действующий адрес электронной почты и пароль.
           </span>
         ) : (
           ''
@@ -51,7 +51,7 @@ function Registration() {
             type='password'
             name='password'
             className='form__input'
-            placeholder='password'
+            placeholder='Пароль'
           />
           <span className='form__input-focus'></span>
           <span className='form__input-icon'>
@@ -62,7 +62,7 @@ function Registration() {
         <button
           type='submit'
           disabled={!email.inputValid || !password.inputValid}
-          className='form__btn btn btn--animate'
+          className='form__btn btn btn_animate'
         >
           Зарегистрироваться
         </button>
