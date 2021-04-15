@@ -64,7 +64,7 @@ function Registration() {
           disabled={!email.inputValid || !password.inputValid}
           className='form__btn btn btn--animate'
         >
-          Sign up
+          Зарегистрироваться
         </button>
       </form>
     </div>

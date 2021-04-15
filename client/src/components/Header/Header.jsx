@@ -17,7 +17,7 @@ function Header() {
             activeClassName={styles.active}
             className={styles.link}
           >
-            <span>Sign in</span>
+            <span>Войти</span>
           </NavLink>
         )}
 
@@ -27,7 +27,7 @@ function Header() {
             activeClassName={styles.active}
             className={styles.link}
           >
-            <span>Sign up</span>
+            <span>Зарегистрироваться</span>
           </NavLink>
         )}
 
@@ -37,7 +37,7 @@ function Header() {
             type='button'
             className={styles.link}
           >
-            <span>Log out</span>
+            <span>Выйти</span>
           </button>
         )}
       </div>

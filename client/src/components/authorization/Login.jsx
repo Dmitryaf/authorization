@@ -51,7 +51,7 @@ function Login() {
         </div>
 
         <button type='submit' className='form__btn btn btn--animate'>
-          Log in
+          Войти
         </button>
       </form>
     </div>
