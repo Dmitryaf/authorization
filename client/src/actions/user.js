@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setUser } from '../redux/userReducer';
+import { setUser, toggleIsFetching } from '../redux/userReducer';
 import { API_URL } from '../config';
 
 export const registration = async (email, password) => {
@@ -35,8 +35,10 @@ export const auth = () => {
       const response = await axios.get(`${API_URL}api/auth/auth`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
-      dispatch(setUser(response.data.user));
+      dispatch(toggleIsFetching(false));
+      if (response.data.user) dispatch(setUser(response.data.user));
       localStorage.setItem('token', response.data.token);
+      dispatch(toggleIsFetching(true));
     } catch (e) {
       localStorage.removeItem('token');
     }

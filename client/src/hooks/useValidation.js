@@ -30,7 +30,7 @@ export const useValidation = (value, validations) => {
           break;
       }
     }
-  }, [value]);
+  }, [value, validations]);
 
   useEffect(() => {
     if (isEmpty || minLengthError || emailError) {

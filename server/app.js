@@ -5,7 +5,6 @@ const config = require('config');
 const app = express();
 
 const authRoute = require('./routes/auth');
-const filesRoute = require('./routes/files');
 
 mongoose
   .connect(config.get('mongoURI'), {
@@ -32,6 +31,5 @@ app.use(
 );
 
 app.use('/api/auth', authRoute);
-app.use('/api/files', filesRoute);
 
 module.exports = app;

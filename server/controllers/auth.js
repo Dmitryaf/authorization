@@ -2,8 +2,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const User = require('../models/User');
-const File = require('../models/File');
-const fileService = require('../services/fileService');
 
 module.exports.login = async (req, res) => {
   try {
@@ -60,7 +58,6 @@ module.exports.registration = async (req, res) => {
 
     try {
       await user.save();
-      await fileService.createDir(new File({ user: user.id, name: '' }));
       res.status(201).json({
         message: 'User created'
       });
